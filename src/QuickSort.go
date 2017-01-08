@@ -29,55 +29,38 @@ func QuickSort(a []int) []int {
 	pivot := Med3(a[0], a[len(a) / 2], a[len(a) - 1])
 	left := 0
 	right := len(a) - 1
-// tmp := 0
-	for left < right {
+	for {
+		// 交換する対象を探す
 		for a[left] < pivot {
 			left++
 		}
 	
 		for a[right] > pivot {
-			// if left == right {
-			// 	break
-			// }
 			right--
 		}
 		
-		// if left >= right {
-		// 	break
-		// }
-
-		fmt.Println("-------------------")
-		fmt.Printf("a[left]: %d\n", a[left])
-		fmt.Printf("left: %d\n", left)
-		fmt.Printf("a[right]: %d\n", a[right])
-		fmt.Printf("right: %d\n", right)
-		fmt.Printf("pivot: %d\n", pivot)
-		fmt.Printf("a: %v\n", a)
-
-		a[left], a[right] = a[right], a[left]
-		// left++
-		// right--
-
-		fmt.Printf("a: %v\n", a)
+		// 左右からの探索が交差したら終了
+		if left >= right {
+			break
+		}
 		
-		// tmp++
-		// if tmp > 3 {
-		// 	break
-		// }
+		// 対象を交換
+		a[left], a[right] = a[right], a[left]
+		if a[right] == pivot {
+			left++
+		}
+		if a[left] == pivot {
+			right--
+		}
 
-		// left++
-		// right--
 	}
-	fmt.Println("*******************")
-	fmt.Println(a)
+	
 	a1 := a[:left]
-	fmt.Printf("a1: %v\n", a1)
 	if len(a1) > 1 {
 		a1 = QuickSort(a1)
 	}
 
 	a2 := a[right+1:]
-	fmt.Printf("a2: %v\n", a2)
 	if len(a2) > 1 {
 		a2 = QuickSort(a2)
 	}
