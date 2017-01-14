@@ -46,10 +46,13 @@ func QuickSort(a []int) {
 		
 		// 対象を交換
 		a[left], a[right] = a[right], a[left]
+
+		flg := true
 		if a[right] == pivot {
 			left++
+			flg = false
 		}
-		if a[left] == pivot {
+		if a[left] == pivot && flg {
 			right--
 		}
 
@@ -81,6 +84,7 @@ func QuickSort(a []int) {
 
 func main()  {
 	a := []int{2, 4, 5, 1, 3}
+	// a := []int{1, 0, 2}
 	// a := []int{2, 4, 1, 3, 1}
 	QuickSort(a)
 	fmt.Println(a)
