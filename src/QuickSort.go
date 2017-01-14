@@ -25,7 +25,7 @@ func Med3(x, y, z int) int {
 	}
 }
 
-func QuickSort(a []int) []int {
+func QuickSort(a []int) {
 	pivot := Med3(a[0], a[len(a) / 2], a[len(a) - 1])
 	left := 0
 	right := len(a) - 1
@@ -57,12 +57,12 @@ func QuickSort(a []int) []int {
 	
 	a1 := a[:left]
 	if len(a1) > 1 {
-		a1 = QuickSort(a1)
+		QuickSort(a1)
 	}
 
 	a2 := a[right+1:]
 	if len(a2) > 1 {
-		a2 = QuickSort(a2)
+		QuickSort(a2)
 	}
 	
 	cnt := 0
@@ -77,11 +77,11 @@ func QuickSort(a []int) []int {
 		cnt++
 	}
 	
-	return a
 }
 
 func main()  {
 	a := []int{2, 4, 5, 1, 3}
 	// a := []int{2, 4, 1, 3, 1}
-	fmt.Println(QuickSort(a))
+	QuickSort(a)
+	fmt.Println(a)
 }
