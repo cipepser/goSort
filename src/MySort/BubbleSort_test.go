@@ -20,8 +20,6 @@ func TestBubbleSort(t *testing.T) {
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
-	a := []int{0, 3, 1, 2, 3, 4, 5, 1, 9, 0}
-	// b.ResetTimer()
 	for i:= 0; i <b.N; i++ {
 		BubbleSort(a)
 	}
