@@ -20,8 +20,8 @@ func TestShellSort(t *testing.T) {
 }
 
 func BenchmarkShellSort(b *testing.B) {
+	a := []int{0, 3, 1, 2, 3, 4, 5, 1, 9, 0}
 	for i:= 0; i <b.N; i++ {
-		a := []int{0, 3, 1, 2, 3, 4, 5, 1, 9, 0}
 		ShellSort(a)
 	}
 }
