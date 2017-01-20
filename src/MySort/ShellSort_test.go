@@ -21,6 +21,9 @@ func TestShellSort(t *testing.T) {
 
 func BenchmarkShellSort(b *testing.B) {
 	for i:= 0; i <b.N; i++ {
+		tmp := make([]int, len(a))
+		copy(tmp, a)
+
 		ShellSort(a)
 	}
 }

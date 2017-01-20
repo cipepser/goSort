@@ -4,6 +4,7 @@ import (
 	"testing"
 	"reflect"
 	"sort"
+	// "fmt"
 )
 
 func TestBubbleSort(t *testing.T) {
@@ -21,6 +22,12 @@ func TestBubbleSort(t *testing.T) {
 
 func BenchmarkBubbleSort(b *testing.B) {
 	for i:= 0; i <b.N; i++ {
+		tmp := make([]int, len(a))
+		copy(tmp, a)
+		// b.StopTimer()
+		// // 初期化処理
+		// b.StartTimer()
+
 		BubbleSort(a)
 	}
 }

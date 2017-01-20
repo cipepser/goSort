@@ -21,6 +21,9 @@ func TestSelectionSort(t *testing.T) {
 
 func BenchmarkSelectionSort(b *testing.B) {
 	for i:= 0; i <b.N; i++ {
+		tmp := make([]int, len(a))
+		copy(tmp, a)
+
 		SelectionSort(a)
 	}
 }
