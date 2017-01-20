@@ -24,6 +24,6 @@ func BenchmarkInsertionSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 		
-		InsertionSort(a)
+		InsertionSort(tmp)
 	}
 }

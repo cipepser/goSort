@@ -24,6 +24,6 @@ func BenchmarkHeapSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 
-		HeapSort(a)
+		HeapSort(tmp)
 	}
 }

@@ -24,6 +24,6 @@ func BenchmarkMergeSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 
-		MergeSort(a)
+		MergeSort(tmp)
 	}
 }

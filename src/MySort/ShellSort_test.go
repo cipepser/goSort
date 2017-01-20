@@ -24,6 +24,6 @@ func BenchmarkShellSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 
-		ShellSort(a)
+		ShellSort(tmp)
 	}
 }

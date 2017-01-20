@@ -28,6 +28,6 @@ func BenchmarkBubbleSort(b *testing.B) {
 		// // 初期化処理
 		// b.StartTimer()
 
-		BubbleSort(a)
+		BubbleSort(tmp)
 	}
 }

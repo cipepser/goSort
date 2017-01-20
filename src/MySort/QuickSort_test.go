@@ -24,6 +24,6 @@ func BenchmarkMQuickSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 
-		QuickSort(a)
+		QuickSort(tmp)
 	}
 }

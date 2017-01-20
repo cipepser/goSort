@@ -24,6 +24,6 @@ func BenchmarkSelectionSort(b *testing.B) {
 		tmp := make([]int, len(a))
 		copy(tmp, a)
 
-		SelectionSort(a)
+		SelectionSort(tmp)
 	}
 }
