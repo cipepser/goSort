@@ -4,7 +4,8 @@ import (
 	"testing"
 	"reflect"
 	"sort"
-	// "fmt"
+	"math/rand"
+	"time"
 )
 
 func TestBubbleSort(t *testing.T) {
@@ -21,13 +22,30 @@ func TestBubbleSort(t *testing.T) {
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
-	for i:= 0; i <b.N; i++ {
-		tmp := make([]int, len(a))
-		copy(tmp, a)
-		// b.StopTimer()
-		// // 初期化処理
-		// b.StartTimer()
+	tmp := make([]int, len(a))
 
+	for i:= 0; i <b.N; i++ {
+		copy(tmp, a)
+
+		BubbleSort(tmp)
+	}
+}
+
+func BenchmarkBubbleSorted(b *testing.B) {
+	tmp := make([]int, len(SortedData))
+
+	for i:= 0; i <b.N; i++ {
+		copy(tmp, SortedData)
+
+		BubbleSort(tmp)
+	}
+}
+
+func BenchmarkBubbleSortRandomizedData(b *testing.B) {
+	for i:= 0; i <b.N; i++ {
+		rand.Seed(time.Now().UnixNano())
+		tmp := rand.Perm(len(a))
+		
 		BubbleSort(tmp)
 	}
 }
