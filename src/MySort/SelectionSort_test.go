@@ -4,6 +4,8 @@ import (
 	"testing"
 	"reflect"
 	"sort"
+	"math/rand"
+	"time"
 )
 
 func TestSelectionSort(t *testing.T) {
