@@ -27,3 +27,22 @@ func BenchmarkHeapSort(b *testing.B) {
 		HeapSort(tmp)
 	}
 }
+
+func BenchmarkHeapSorted(b *testing.B) {
+	tmp := make([]int, len(SortedData))
+
+	for i:= 0; i <b.N; i++ {
+		copy(tmp, SortedData)
+
+		HeapSort(tmp)
+	}
+}
+
+func BenchmarkHeapSortRandomizedData(b *testing.B) {
+	for i:= 0; i <b.N; i++ {
+		rand.Seed(time.Now().UnixNano())
+		tmp := rand.Perm(len(a))
+		
+		HeapSort(tmp)
+	}
+}
